@@ -1,0 +1,153 @@
+body{
+    margin: 0%;
+    padding: 0%;
+}
+.header{
+    height: 20vh;
+    width: 100vw;
+    background-color: black;
+    color: whitesmoke;
+    width: 100vw;
+    display: flex;
+    justify-content: space-around;
+    align-items: end;
+}
+
+.body{
+    /* height: 60vh; */
+    width: 100vw;;
+    position: relative;
+    margin: 0%;
+}
+
+.fetch{
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+th ,td {
+    border: 1px solid black;
+    padding: 10px 20px;
+}
+
+.img{
+
+   height: 25vh;
+   width: 17vw;
+   border-radius: 50%;
+   position: absolute;
+   left: 42vw;
+   top: -15vh;
+   z-index: 1;
+}
+
+.cond_btn{
+    width: 120px;
+    height: 60px;
+    text-decoration: none;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: whitesmoke;
+    color: black;
+}
+
+.cond_ui{
+    display: flex;
+
+    text-align: center;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 50vw;
+    color: white;
+}
+
+.cond_img{
+    border-radius: 20%; ;
+}
+
+.conductor_main{
+    display: flex;
+    /* flex-direction: column; */
+    gap: 5vh;
+    width: 50vw;
+    align-items: center;
+    justify-content: center;
+}
+
+.cond_main{
+    /* margin: 10vh; */
+    margin-top: 17vh;
+    display: flex;
+    justify-content: space-between;
+}
+
+.cond_main1{
+    display: flex;
+    justify-content: space-evenly;
+    width: 100vw;
+}
+.m1{
+    width: 15vw;
+    height: 20vh;
+}
+
+a{
+    text-decoration: none;
+}
+.main_img{
+    width: 100%;
+    height: 100%;
+}
+
+.b1{
+    width: 20vw;
+    height: 10vh;
+    border-radius: 20%;
+    background-color:bisque;
+}
+.btn{
+    border-radius: 10%;
+    color: white;
+    background-color: black;
+    height: 30px;
+    width: 10vw;
+}
+
+@media screen and (max-width:700px) {
+ .conductor_main{
+    display: flex;
+    flex-direction: column;
+    gap:1vh;
+ }
+}
+
+/*
+.typewriter {
+    overflow: hidden;
+    white-space: nowrap;
+    margin: 0 auto;
+    animation: typing 8s steps(10, end) ;
+    position: relative;
+    display: inline-block;
+  }
+
+  /* .typewriter::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 0.15em;
+    background-color: orange;
+    animation: blink-caret .75s step-end infinite;
+  } */
+
+  /* @keyframes typing {
+    from { width: 0; }
+    to { width: 100%; }
+  } */

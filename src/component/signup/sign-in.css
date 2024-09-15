@@ -1,0 +1,56 @@
+.reg-main-flex{
+    display: flex;
+    height: 80vh;
+    width: 80vw;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    background-color:floralwhite;
+    color:dimgrey;
+}
+
+.reg-img{
+    width: 30vw;
+    height: 70vh;
+    position: relative;
+    top: 20px;
+}
+
+button{
+    border-radius: 10%;
+    transition: ease-in-out;
+}
+
+button:hover{
+    background-color:bisque;
+    animation-delay: 1s;
+}
+
+img{
+    width: 30vw;
+    height: 60vh;
+}
+
+.reg-con{
+    width:40vw;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 2vh;
+}
+
+.f1{
+    display: flex;
+    flex-direction: column;
+    gap: 2vh;
+    height: 30%;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    align-content: center;
+}
+
+input{
+    width: 60%;
+}
