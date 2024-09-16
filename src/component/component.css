@@ -29,7 +29,7 @@ body{
 
 th ,td {
     border: 1px solid black;
-    padding: 10px 20px;
+    padding: 5px 10px;
 }
 
 .img{
@@ -55,6 +55,105 @@ th ,td {
     color: black;
 }
 
+/* Profile */
+.profile-main{
+    display: flex;
+    flex-direction: column;
+}
+
+/* Main container setup for responsiveness */
+
+
+/* Upper part background */
+.prof-part1 {
+    background-color: orange;
+    height: 30vh;
+    width: 100vw;
+}
+
+/* Lower part background */
+.prof-part2 {
+    background-color: white;
+    height: 70vh;
+    width: 100vw;
+}
+
+/* Centered black box */
+.prof-absolute {
+    background-color: black;
+    height: 60vh;
+    width: 70vw;
+    color: white;
+    position: absolute;
+    top: 20vh;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 2%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+}
+
+/* Circular avatar or decoration */
+.prof-absolute2 {
+    position: absolute;
+    background-color:whitesmoke;
+    height: 120px;
+    width: 120px;
+    border-radius: 50%;
+    bottom: 100%;
+    left: 50%;
+    transform: translate(-50%, 50%);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+    color: orange;
+    font-size: larger;
+}
+
+/* Add hover effect for the circle */
+.prof-absolute2:hover {
+    transform: translate(-50%, 50%) scale(1.1);
+    color: orangered;
+
+}
+
+/* Responsive adjustments for mobile devices */
+@media screen and (max-width: 800px) {
+    .prof-absolute {
+        width: 80vw;
+        height: 65vh;
+        top: 20vh;
+    }
+
+    .prof-absolute2 {
+        height: 100px;
+        width: 100px;
+    }
+}
+
+/* Further adjustments for smaller screens */
+@media screen and (max-width: 480px) {
+    .prof-absolute {
+
+        width: 75vw;
+        height: 60vh;
+        top: 18vh;
+    }
+
+    .prof-absolute2 {
+        height: 80px;
+        width: 80px;
+    }
+}
+
+
 .cond_ui{
     display: flex;
 
@@ -73,7 +172,7 @@ th ,td {
 .conductor_main{
     display: flex;
     /* flex-direction: column; */
-    gap: 5vh;
+    gap: 2vh;
     width: 50vw;
     align-items: center;
     justify-content: center;
@@ -122,8 +221,15 @@ a{
  .conductor_main{
     display: flex;
     flex-direction: column;
-    gap:1vh;
+    gap:1px;
+    padding: 0;
+    margin-top:0 ;
+    margin-inline-end: 10vw;;
  }
+ .m1{
+    width: 25vw;
+    height: 12vh;
+}
 }
 
 /*

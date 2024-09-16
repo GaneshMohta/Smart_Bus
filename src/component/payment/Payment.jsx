@@ -2,6 +2,7 @@ import React from 'react'
 import { useState } from 'react'
 import axios from 'axios';
 import Header from '../Header';
+import { Link } from 'react-router-dom';
 
 
 export default function Payment() {
@@ -97,8 +98,22 @@ export default function Payment() {
     paymentObject.open();
   };
 
+  const userId = localStorage.getItem('userId');
+  const BusId = localStorage.getItem('busId');
+
   return <>
   <Header />
+  <span style={{position:'absolute',top:'4px',left:'1vw',fontWeight:'bolder'}}>
+    {userId ? (
+    <Link to="/User" style={{ textDecoration: 'none' }}>
+      👈
+    </Link>
+    ) : BusId ? (
+    <Link to="/cond-page" style={{ textDecoration: 'none' }}>
+      👈
+    </Link>
+    ) : null}
+  </span>
     <div style={{display:'flex',flexDirection:'column',gap:'2vh',alignItems:'center',justifyContent:'center',height:'80vh'}}>
       <h2>Recharge Application</h2>
       <input

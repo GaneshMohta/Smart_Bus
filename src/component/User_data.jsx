@@ -1,27 +1,24 @@
 import React, { useState, useEffect } from 'react';
-import './component.css';
+import { Link } from 'react-router-dom';
 import axios from 'axios';
 import Header from './Header';
-import { Link } from 'react-router-dom';
 
-export default function Cond_Data() {
-    const [date, setDate] = useState('');
-    const [area, setArea] = useState('');
+export default function User_data() {
+    const [period, setPeriod] = useState('1week');
     const [name, setName] = useState([]);
 
-    const busId = localStorage.getItem('busId');
-    console.log(busId);
+    const userId = localStorage.getItem('userId');
+    console.log(userId);
+    const userName = localStorage.getItem('userName');
+    console.log(userName);
 
-    // Fetch data based on date or area
+    // Fetch data based on period
     const fetchData = async () => {
         try {
             console.log("Fetching data...");
-            const response = await axios.get("http://localhost:3000/api/bus-travel", {
-                params: {
-                    bus_id: busId,  // Adjust based on actual logic
-                    travel_date: date || undefined,
-                    destination: area || undefined,  // Use undefined if area is not provided
-                },
+            const response = await axios.post("http://localhost:3000/user/Travel", {
+                user_id: userId,
+                period: period,
             });
             setName(response.data);
             console.log(response.data);
@@ -31,29 +28,38 @@ export default function Cond_Data() {
     };
 
     useEffect(() => {
-        if (area || date) fetchData();  // Conditionally fetch data based on area or date
-    }, [area, date]);
+        fetchData();
+    }, [period]);
 
     // Handle form submission
     const handleSubmit = (e) => {
         e.preventDefault();
-        fetchData();  // Call fetchData on form submit
+        fetchData();
     };
 
     return (
         <div>
             <Header />
-            <span style={{position:'absolute',top:'4px',left:'1vw',fontWeight:'bolder'}}>
-                <Link to='/cond-page' style={{textDecoration:'none',color:'white'}}>👈</Link>
+            <span style={{ position: 'absolute', top: '4px', left: '1vw', fontWeight: 'bolder' }}>
+                <Link to='/user' style={{ textDecoration: 'none', color: 'white' }}>←</Link>
+            </span>
+            <span style={{ position: 'absolute', top: '5%', left: '90%', fontWeight: 'bolder',height:'auto',width:'auto',borderRadius:'50%',backgroundColor:'ORANGE',
+                display:'flex',justifyContent:'center',alignItems:'center',fontSize:'15px',padding:'10px'
+             }}>
+                <Link to='/profile' style={{ textDecoration: 'none', color: 'white' }}>{userName}</Link>
             </span>
             <div className='cond_main'>
-                <form onSubmit={handleSubmit} >
+                <form onSubmit={handleSubmit}>
                     <div className='cond_main1'>
-                        <input className='b1' type='date' value={date} onChange={(e) => setDate(e.target.value)} />
-                        <input className='b1' type='text' placeholder='Enter Area' value={area} onChange={(e) => setArea(e.target.value)} />
+                        <select className='b1' value={period} onChange={(e) => setPeriod(e.target.value)}>
+                            <option value="1week">Last 1 Week</option>
+                            <option value="2weeks">Last 2 Weeks</option>
+                            <option value="1month">Last 1 Month</option>
+                            <option value="1year">Last 1 Year</option>
+                        </select>
                     </div>
                     <br />
-                    <div style={{textAlign:'center'}}>
+                    <div style={{ textAlign: 'center' }}>
                         <button className='btn' type='submit'> Fetch </button>
                     </div>
                 </form>

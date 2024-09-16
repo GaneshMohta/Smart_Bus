@@ -2,12 +2,13 @@ import { Link } from 'react-router-dom'
 import './component.css'
 import Header from './Header'
 function Homepage() {
+  const busId=localStorage.getItem('busId');
   return (
   <div>
   <div style={{height:'9vh', margin:'1vh',display:'flex',justifyContent:'space-between',alignItems:"center",paddingInlineStart:'5px',paddingInlineEnd:'5px'}}>
-    <div>HII</div>
-    <div>Byy</div>
-    <div>User</div>
+    <div></div>
+    <div style={{fontWeight:"bolder",fontSize:'7vh'}}>SmartBus</div>
+    <Link to='/profile'><div style={{borderRadius:'50%',backgroundColor:'orange',width:'40px',height:'40px',display:"flex",justifyContent:"center",alignItems:"center",fontSize:'15px'}}>{busId}</div></Link>
   </div>
   <div style={{display:'flex',backgroundColor:"black", height:'90vh'}}>
 

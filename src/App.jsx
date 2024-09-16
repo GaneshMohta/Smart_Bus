@@ -9,6 +9,8 @@ import Header from './component/Header';
 import Login from './component/signup/login';
 import User from './component/User';
 import Payment from './component/payment/Payment';
+import User_data from './component/User_data';
+import Profile from './component/profile';
 
 
 function App() {
@@ -18,11 +20,13 @@ function App() {
     <>
       <Router>
         <Routes>
-        <Route path='/' element={<Homepage />}></Route>
+        <Route path='/cond-page' element={<Homepage />}></Route>
         <Route path='/cond_data' element={<Cond_Data />}></Route>
-        <Route path='/login' element={<Login/>}></Route>
+        <Route path='/' element={<Login/>}></Route>
         <Route path='/User' element={<User />}></Route>
         <Route path='/recharge' element={<Payment/>}></Route>
+        <Route path='/user-travel' element={<User_data/>}></Route>
+        <Route path='/profile' element={<Profile/>}></Route>
         </Routes>
       </Router>
     </>

@@ -17,12 +17,16 @@ export default function Login() {
         password: pass,
         type: val
       });
-      console.log(response.data);
+      console.log(response.data)
 
       if(val=="bus"){
-        navigate('/');
+        localStorage.setItem('busId',response.data.bus.bus_id)
+        navigate('/cond-page');
       }
       else if(val=="user"){
+        localStorage.setItem('userId',response.data.user.user_id);
+        localStorage.setItem('userName',response.data.user.user_name);
+
         navigate('/user')
       }
     } catch (error) {
