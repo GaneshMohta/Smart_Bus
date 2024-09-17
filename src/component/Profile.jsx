@@ -43,6 +43,7 @@ export default function Profile() {
         navigate('/');
     };
 
+
     return (
         <div>
             <div>

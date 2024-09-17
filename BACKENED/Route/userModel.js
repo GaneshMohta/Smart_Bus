@@ -40,4 +40,24 @@ router.post('/Travel',(req,res)=>{
 
 });
 
+router.get('/curr-trips',(req,res)=>{
+    const {user_id} = req.query;
+    console.log("HEY",user_id);
+    if(!user_id) {
+        return res.status(400).json({error: "user_id is Required"});
+    }
+
+    let query = `select * from bus_user_records where user_id = ?`
+
+    let queryParams = [user_id];
+
+    db.query(query , [queryParams] ,(err,results)=>{
+        if(err){
+            res.status(400).json({error: "user_id is Required"});
+        }
+        res.status(200).json(results);
+    })
+
+})
+
 module.exports = router;

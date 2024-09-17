@@ -11,6 +11,7 @@ import User from './component/User';
 import Payment from './component/payment/Payment';
 import User_data from './component/User_data';
 import Profile from './component/profile';
+import CurrentTrips from './component/CurrentTrips';
 
 
 function App() {
@@ -27,6 +28,7 @@ function App() {
         <Route path='/recharge' element={<Payment/>}></Route>
         <Route path='/user-travel' element={<User_data/>}></Route>
         <Route path='/profile' element={<Profile/>}></Route>
+        <Route path='/curr-trips' element={<CurrentTrips/>}></Route>
         </Routes>
       </Router>
     </>

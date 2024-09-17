@@ -1,10 +1,12 @@
 import React from 'react'
 import Header from './Header'
 import { Link } from 'react-router-dom'
+import './component.css'
 
 export default function User() {
 
-  const userName = localStorage.getItem('userName')
+  const userName = localStorage.getItem('userName');
+
   return (
     <div>
       <Header/>
@@ -13,6 +15,7 @@ export default function User() {
              }}>
                 <Link to='/profile' style={{ textDecoration: 'none', color: 'white' }}>{userName}</Link>
       </span>
+      <div className='user_main'>
       <div className='m1'>
             <Link to='/recharge'>
             <div className='cond_btn'>Recharge</div>
@@ -24,9 +27,10 @@ export default function User() {
             </Link>
       </div>
       <div className='m1'>
-            <Link to='/recharge'>
-            <div className='cond_btn'>Card Amount</div>
+            <Link to='/curr-trips'>
+            <div className='cond_btn'>Current Trips</div>
             </Link>
+      </div>
       </div>
     </div>
   )
