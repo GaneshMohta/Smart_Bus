@@ -40,12 +40,14 @@ export default function User_data() {
     return (
         <div>
             <Header />
+            <span style={{position:'absolute',top:'4px',left:'1vw'}}>
+             <Link to="/cond-page" style={{ textDecoration: 'none' }}>
+                👈
+             </Link></span>
             <span style={{ position: 'absolute', top: '4px', left: '1vw', fontWeight: 'bolder' }}>
-                <Link to='/user' style={{ textDecoration: 'none', color: 'white' }}>←</Link>
+                <Link to='/cond-page' style={{ textDecoration: 'none', color: 'white' }}>←</Link>
             </span>
-            <span style={{ position: 'absolute', top: '5%', left: '90%', fontWeight: 'bolder',height:'auto',width:'auto',borderRadius:'50%',backgroundColor:'ORANGE',
-                display:'flex',justifyContent:'center',alignItems:'center',fontSize:'15px',padding:'10px'
-             }}>
+            <span className='prof-det'>
                 <Link to='/profile' style={{ textDecoration: 'none', color: 'white' }}>{userName}</Link>
             </span>
             <div className='cond_main'>

@@ -7,6 +7,7 @@
     justify-content: center;
     align-items: center;
     background-color:floralwhite;
+    border:2px solid orangered;
     color:dimgrey;
 }
 
@@ -45,13 +46,151 @@ img{
     display: flex;
     flex-direction: column;
     gap: 2vh;
-    height: 30%;
+    height: 40%;
     align-items: center;
     text-align: center;
     justify-content: center;
     align-content: center;
 }
 
+.reg-in{
+    height: 7vh;
+    width: 35vw;
+    border-radius: 5vh;
+    border: 2px solid orangered;
+}
+
+.com-name{
+    position:absolute;
+    top:17px;
+    left:44%;
+    color: white;
+    font-size: 30px;
+}
+
 input{
-    width: 60%;
+    width: 3vw;
+    height: 2vh;
+}
+.btn{
+    position: relative;
+    left: 10px;
+}
+
+@media screen and (max-width:480px) {
+    .reg-main-flex{
+        display: flex;
+        flex-direction:column;
+        height: 85vh;
+        width: 85vw;
+    }
+    img{
+        width: 20vw;
+        height: 19vh;
+    }
+    .reg-img{
+        width: 32vw;
+        height: 19vh;
+        position: relative;
+        top: 20px;
+    }
+
+    .reg-in{
+        height: 13vh;
+        width: 60vw;
+        border-radius: 5vh;
+        font-size: 22px;
+        padding: 2px;
+        border: 2px solid orangered;
+    }
+    .com-name{
+        position:absolute;
+        top:27px;
+        color: red;
+        left:33%;
+        color: white;
+        font-size: 30px;
+    }
+    .btn{
+        padding: auto;
+        width: 60px;
+    }
+}
+
+
+@media screen and (max-width:750px) and (min-width : 456px) {
+    .reg-main-flex{
+        display: flex;
+        flex-direction:column;
+        height: 85vh;
+        width: 85vw;
+    }
+    img{
+        width: 20vw;
+        height: 19vh;
+    }
+    .reg-img{
+        width: 32vw;
+        height: 19vh;
+        position: relative;
+        top: 20px;
+    }
+
+    .reg-in{
+        height: 13vh;
+        width: 60vw;
+        border-radius: 5vh;
+        font-size: 22px;
+        padding: 2px;
+        border: 2px solid orangered;
+    }
+    .com-name{
+        position:absolute;
+        top:9px;
+        color: red;
+        left:35%;
+        color: white;
+        font-size: 30px;
+    }
+}
+
+@media screen and (max-width:1000px) and (min-width : 751px) {
+    .reg-main-flex{
+        display: flex;
+        flex-direction:column;
+        height: 85vh;
+        width: 85vw;
+    }
+    img{
+        width: 20vw;
+        height: 19vh;
+    }
+    .reg-img{
+        width: 32vw;
+        height: 19vh;
+        position: relative;
+        top: 20px;
+    }
+
+    .reg-in{
+        height: 13vh;
+        width: 60vw;
+        border-radius: 5vh;
+        font-size: 22px;
+        padding: 2px;
+        border: 2px solid orangered;
+    }
+    .com-name{
+        position:absolute;
+        top:35px;
+        color: red;
+        left:39%;
+        color: white;
+        font-size: 32px;
+    }
+    .btn{
+        width: 80px;
+        height: 25px;
+        font-size: large;
+    }
 }

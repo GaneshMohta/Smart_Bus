@@ -33,6 +33,9 @@ export default function CurrentTrips() {
         </div>
         <div className='prof-absolute'>
             <h1>NO TICKETS EXISTS</h1>
+            <Link to="/cond-page" style={{ textDecoration: 'none',color:'red' }}>
+                    Back
+            </Link>
         </div>
     </div>
   }
@@ -54,7 +57,7 @@ export default function CurrentTrips() {
 
             <br />
             {userId ? (
-                <Link to="/User" style={{ textDecoration: 'none' }}>
+                <Link to="/cond-page" style={{ textDecoration: 'none' }}>
                     Back
                 </Link>
             ) : null}

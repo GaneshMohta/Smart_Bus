@@ -1,0 +1,54 @@
+.prof-det{
+    position: absolute;
+    top: 5%;
+    left: 85vw;
+    font-weight: bolder;
+    height:40px;
+    width:auto;
+    border-radius:50%;
+    background-color:ORANGE;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:15px;
+    padding:10px
+
+}
+span{
+    font-size: 25px;
+}
+
+.btn{
+    width: 80px;
+}
+
+.pay-inp{
+    height: 8%;
+    width: 40%;
+    border-color:orangered;
+    border-radius: 5%;
+}
+
+@media screen and (max-width:500px) {
+    .prof-det{
+        position: absolute;
+        top: 5%;
+        left: 85vw;
+        font-weight: bolder;
+        height:40px;
+        width:auto;
+        border-radius:50%;
+        background-color:ORANGE;
+        display:flex;
+        justify-content:center;
+        align-items:center;
+        font-size:15px;
+        padding:10px
+    }
+
+    .pay-inp{
+        height: 5%;
+        width: 55%;
+
+    }
+}

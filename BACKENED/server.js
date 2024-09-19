@@ -48,6 +48,7 @@ app.post('/create-order', async (req, res) => {
 
   try {
     const response = await razorpay.orders.create(options);
+    console.log('Razorpay Order Response:', response);
     res.json({
       id: response.id,
       currency: response.currency,
@@ -63,6 +64,8 @@ app.post('/create-order', async (req, res) => {
 app.post('/verify-payment', (req, res) => {
   const { razorpay_order_id, razorpay_payment_id, razorpay_signature, user_card, amount_paid } = req.body;
 
+  console.log('Received verification request with:', req.body);
+
   // Check if the user card exists in the database
   const checkCardQuery = `SELECT * FROM user_card WHERE user_card = ?`;
 
@@ -73,6 +76,7 @@ app.post('/verify-payment', (req, res) => {
     }
 
     if (results.length === 0) {
+      console.log('User card does not exist');
       return res.status(404).json({ message: 'User card does not exist' });
     }
 
@@ -82,7 +86,9 @@ app.post('/verify-payment', (req, res) => {
       .digest('hex');
 
     if (expectedSignature === razorpay_signature) {
-      // Payment verified successfully, now update the card amount
+      console.log('Payment verification successful');
+
+      // Update the card amount
       const updateAmountQuery = `UPDATE user_card SET card_amount = card_amount + ? WHERE user_card = ?`;
 
       connection.query(updateAmountQuery, [amount_paid, user_card], (err, results) => {
@@ -91,21 +97,27 @@ app.post('/verify-payment', (req, res) => {
           return res.status(500).json({ message: 'Database update error', details: err });
         }
 
+        console.log('Card amount updated successfully');
+
         // Respond with new card amount
         const newAmountQuery = `SELECT card_amount FROM user_card WHERE user_card = ?`;
         connection.query(newAmountQuery, [user_card], (err, amountResults) => {
           if (err) {
+            console.error('Error fetching new card amount:', err);
             return res.status(500).json({ message: 'Error fetching new card amount', details: err });
           }
+
           const newAmount = amountResults[0].card_amount;
           res.status(200).json({ message: 'Payment verified successfully', newAmount });
         });
       });
     } else {
+      console.log('Payment verification failed');
       res.status(400).json({ message: 'Payment verification failed' });
     }
   });
 });
+
 
 app.get("/profile",(req,res)=>{
     const {user_id,bus_id}=req.query;

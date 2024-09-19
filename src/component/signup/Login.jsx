@@ -27,7 +27,7 @@ export default function Login() {
         localStorage.setItem('userId',response.data.user.user_id);
         localStorage.setItem('userName',response.data.user.user_name);
 
-        navigate('/user')
+        navigate('/cond-page')
       }
     } catch (error) {
       console.error(error.response.data);
@@ -35,10 +35,13 @@ export default function Login() {
   };
 
   return (
-    <div style={{ backgroundColor: 'black', display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh' }}>
+    <div>
+    <div style={{ backgroundColor: 'orange', display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh' }}>
+
       <div className='reg-main-flex'>
+
         <div className="reg-img">
-          <img src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSbBDjsdSPrlLpuvho0921PFbISsgOfBwjWRw&s' alt='Login Illustration' />
+          <img style={{borderRadius:'10%'}} src='https://www.itf-oecd.org/sites/default/files/styles/panopoly_image_original/public/shutterstock_1608783049_450px.jpg?itok=76eIsUBm' alt='Login' />
         </div>
         <div className='reg-con'>
           <h1>Login</h1>
@@ -77,10 +80,13 @@ export default function Login() {
               />
               <label htmlFor='bus'>Bus</label>
             </div>
-            <button type='submit'>Login</button>
+            <button className='btn' type='submit'>Login</button>
           </form>
         </div>
       </div>
+
+    </div>
+    <div className='com-name'>SMART BUS</div>
     </div>
   );
 }

@@ -3,6 +3,7 @@ import { useState } from 'react'
 import axios from 'axios';
 import Header from '../Header';
 import { Link } from 'react-router-dom';
+import './payment.css'
 
 
 export default function Payment() {
@@ -61,7 +62,7 @@ export default function Payment() {
     const { amount: orderAmount, id: orderId, currency } = orderResponse.data;
 
     const options = {
-      key: "rzp_test_9zumki8SHk1M7c", // Do not expose your secret key here, only key_id
+      key: "rzp_test_NUXd7hr82kbcfF", // Do not expose your secret key here, only key_id
       amount: orderAmount,
       currency: currency,
       name: 'BusZ Recharge',
@@ -74,9 +75,10 @@ export default function Payment() {
           razorpay_order_id: response.razorpay_order_id,
           razorpay_payment_id: response.razorpay_payment_id,
           razorpay_signature: response.razorpay_signature,
-          user_card : userCard,
+          user_card: userCard,
           amount_paid: amount
         });
+
 
         if (verifyResponse.data.message === 'Payment verified successfully') {
           alert(`Payment successful Your new balance is ${verifyResponse.data.newAmount}!`);
@@ -100,12 +102,13 @@ export default function Payment() {
 
   const userId = localStorage.getItem('userId');
   const BusId = localStorage.getItem('busId');
+  const userName = localStorage.getItem('userName');
 
   return <>
   <Header />
-  <span style={{position:'absolute',top:'4px',left:'1vw',fontWeight:'bolder'}}>
+  <span style={{position:'absolute',top:'4px',left:'1vw'}}>
     {userId ? (
-    <Link to="/User" style={{ textDecoration: 'none' }}>
+    <Link to="/cond-page" style={{ textDecoration: 'none' }}>
       👈
     </Link>
     ) : BusId ? (
@@ -114,24 +117,27 @@ export default function Payment() {
     </Link>
     ) : '👈'}
   </span>
+  <span className='prof-det'>
+                <Link to='/profile' style={{ textDecoration: 'none', color: 'white' }}>{userName || BusId}</Link>
+  </span>
     <div style={{display:'flex',flexDirection:'column',gap:'2vh',alignItems:'center',justifyContent:'center',height:'80vh'}}>
       <h2>Recharge Application</h2>
       <input
         type="text"
         value={userCard}
-        style={{width:'40vw',height:'5vh'}}
+        className='pay-inp'
         onChange={(e) => setUserCard(e.target.value)}
         placeholder="Card Number"
       />
       <input
         type="number"
         value={amount}
-        style={{width:'40vw',height:'5vh'}}
+      className='pay-inp'
         onChange={(e) => setAmount(e.target.value)}
         placeholder="Enter amount"
       />
-      <button onClick={handlePayment}
-      style={{width:'20vw',height:'5vh'}}
+      <button className='btn' onClick={handlePayment}
+
       >Pay with UPI</button>
     </div>
   </>;

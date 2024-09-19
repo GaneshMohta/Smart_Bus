@@ -4,13 +4,15 @@ body{
 }
 .header{
     height: 20vh;
-    width: 100vw;
-    background-color: #795757;
+    width: 96vw;
+    background-color: white;
     color: whitesmoke;
     width: 100vw;
     display: flex;
     justify-content: space-around;
     align-items: end;
+    border: 2px solid white;
+    border-bottom-color: orangered;
 }
 
 .body{
@@ -18,7 +20,7 @@ body{
     width: 100vw;;
     position: relative;
     margin: 0%;
-    background-color: #FFF0D1;
+    background-color: white;
 }
 
 .fetch{
@@ -42,6 +44,7 @@ th ,td {
    left: 42vw;
    top: -15vh;
    z-index: 1;
+   border-bottom:2px solid orangered ;
 }
 
 .cond_btn{
@@ -52,8 +55,16 @@ th ,td {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #795757;
+    background-color: orange;
+    border-color: orangered;
     color: black;
+    transition: ease-out;
+    transition-delay: 0.1s;
+}
+
+.cond_btn:hover{
+    background-color: orangered;
+    border: orange;
 }
 
 /* Profile */
@@ -67,24 +78,25 @@ th ,td {
 
 /* Upper part background */
 .prof-part1 {
-    background-color: #795757;
+    background-color: white;
     height: 30vh;
     width: 100vw;
 }
 
 /* Lower part background */
 .prof-part2 {
-    background-color: #FFF0D1;
+    background-color: white;
     height: 70vh;
     width: 100vw;
 }
 
 /* Centered black box */
 .prof-absolute {
-    background-color: black;
+    background-color: rgba(255, 166, 0, 0.837);
+    border: 2px solid orangered;
     height: 60vh;
     width: 70vw;
-    color: white;
+    color: black;
     position: absolute;
     top: 20vh;
     left: 50%;
@@ -102,6 +114,7 @@ th ,td {
 .prof-absolute2 {
     position: absolute;
     background-color:whitesmoke;
+    border: 2px solid orangered;
     height: 120px;
     width: 120px;
     border-radius: 50%;
@@ -111,10 +124,9 @@ th ,td {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
     transition: all 0.3s ease;
     display: flex;
-
     align-items: center;
     justify-content: center;
-    color: orange;
+    color: rgb(255, 115, 0);
     font-size: larger;
 }
 
@@ -123,6 +135,11 @@ th ,td {
     transform: translate(-50%, 50%) scale(1.1);
     color: orangered;
 
+}
+.hp{
+    font-size: 45px;
+    position: relative;
+    left: 10px;
 }
 
 /* Responsive adjustments for mobile devices */
@@ -137,12 +154,12 @@ th ,td {
         height: 100px;
         width: 100px;
     }
+
 }
 
 /* Further adjustments for smaller screens */
 @media screen and (max-width: 480px) {
     .prof-absolute {
-
         width: 75vw;
         height: 60vh;
         top: 18vh;
@@ -152,18 +169,56 @@ th ,td {
         height: 80px;
         width: 80px;
     }
+    .cond_ui{
+        text-align: center;
+
+        color: white;
+
+    }
+    .bg-img{
+        display: flex;
+        flex-direction: column;
+        align-items:center;
+        justify-content: space-evenly;
+    }
+    .conductor_main{
+        flex-direction: column;
+        width: 50vw;
+        align-items: center;
+        justify-content: center;
+
+    }
+    .hp{
+        font-weight:100;
+        font-size: 40px;
+
+    }
+    .img{
+
+        height: 20vh;
+        width: 24vw;
+        border-radius: 50%;
+        position: absolute;
+        left: 40vw;
+        top: -12vh;
+        z-index: 1;
+        border-bottom:2px solid orangered ;
+     }
+
+
 }
 
 
 .cond_ui{
     display: flex;
-    background-color: #FFF0D1;
+    /* background-color: white; */
     text-align: center;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     width: 50vw;
-    color: #FFF0D1;
+    color: white;
+
 }
 
 .cond_img{
@@ -178,7 +233,7 @@ th ,td {
     width: 50vw;
     align-items: center;
     justify-content: center;
-    background-color: #FFF0D1;
+    /* background-color: white; */
 }
 
 .user_main{
@@ -189,7 +244,7 @@ th ,td {
     height: 80vh;
     align-items: center;
     justify-content: center;
-    background-color: #FFF0D1;
+    background-color: white;
 }
 
 .cond_main{
@@ -198,6 +253,10 @@ th ,td {
     display: flex;
     justify-content: space-between;
 
+}
+
+.hp-h1{
+ color: aqua;
 }
 
 .cond_main1{
@@ -222,14 +281,22 @@ a{
     width: 20vw;
     height: 10vh;
     border-radius: 20%;
-    background-color:bisque;
+    background-color:orange;
 }
 .btn{
     border-radius: 10%;
     color: white;
-    background-color: black;
+    background-color: orange;
+    border:1px solid orangered;
     height: 30px;
     width: 10vw;
+    transition: ease-out;
+    transition-delay: 0.2s;
+}
+
+.btn:hover{
+background-color: orangered;
+border: 2px solid orange;
 }
 
 
@@ -254,8 +321,46 @@ a{
  .m1{
     width: 25vw;
     height: 12vh;
+  }
+  .b1{
+    width: 24vw;
+    height: 5vh;
+    position: relative;
+    left: 10px;
+    border-radius: 20%;
+    background-color:orange;
 }
 }
+
+.bg-img {
+  position: relative;  /* Ensure positioning for pseudo-element */
+  width: 100%;
+  height: 400px;  /* Set your desired height */
+  z-index: 1;  /* To ensure the pseudo-element stays behind the content */
+}
+
+.bg-img::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT3u1LVvrMde1qPCJYXUTu-j_ncJz6rqlu6Sw&s');
+  background-size: cover;
+  background-position: center;
+  opacity: 0.6;  /* Set the opacity */
+  z-index: -1;  /* Keep it behind the content */
+}
+
+.content {
+  position: relative;
+  z-index: 2;
+  color: #fff;  /* For contrast with the background */
+  text-align: center;
+  padding: 20px;
+}
+
 
 
 

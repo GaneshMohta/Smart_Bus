@@ -65,11 +65,11 @@ export default function Profile() {
                         style={{
                             width: '60px',
                             height: '30px',
-                            backgroundColor: 'bisque',
+                            backgroundColor: 'red',
                             display: 'flex',
                             justifyContent: 'center',
                             alignItems: 'center',
-                            borderRadius: '5%',
+                            borderRadius: '10%',
                             cursor: 'pointer',
                         }}
                         onClick={handleLogout}
@@ -79,11 +79,11 @@ export default function Profile() {
 
                     <br />
                     {userId ? (
-                        <Link to="/User" style={{ textDecoration: 'none' }}>
+                        <Link to="/cond-page" style={{ textDecoration: 'none' , color:'red' }}>
                             Back
                         </Link>
                     ) : BusId ? (
-                        <Link to="/cond-page" style={{ textDecoration: 'none' }}>
+                        <Link to="/cond-page" style={{ textDecoration: 'none' , color:'red'}}>
                             Back
                         </Link>
                     ) : null}

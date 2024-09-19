@@ -46,6 +46,11 @@ export default function Cond_Data() {
             <span style={{position:'absolute',top:'4px',left:'1vw',fontWeight:'bolder'}}>
                 <Link to='/cond-page' style={{textDecoration:'none',color:'white'}}>👈</Link>
             </span>
+            <div style={{ position: 'absolute', top: '5%', left: '90vw', fontWeight: 'bolder',height:'40px',width:'auto',borderRadius:'50%',backgroundColor:'ORANGE',
+                display:'flex',justifyContent:'center',alignItems:'center',fontSize:'15px',padding:'10px'
+             }}>
+                <Link to='/profile' style={{ textDecoration: 'none', color: 'white' }}>{busId}</Link>
+            </div>
             <div className='cond_main'>
                 <form onSubmit={handleSubmit} >
                     <div className='cond_main1'>
