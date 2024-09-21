@@ -3,6 +3,7 @@ const express = require('express');
 const Razorpay = require('razorpay');
 const cors = require('cors');
 const crypto = require('crypto');
+const nodemailer = require('nodemailer');
 const busTravel = require('./Route/travel.js');
 const userTravel = require('./Route/userModel.js');
 require('dotenv').config();
@@ -17,7 +18,7 @@ const connection = mysql.createConnection({
   host: 'localhost',
   port: '3306',
   user: 'root',
-  password: 'JaiMahesh#1',
+  password: process.env.Sql_Password,
   database: 'SmartBus',
 });
 
@@ -157,6 +158,58 @@ app.get("/profile",(req,res)=>{
     } else {
         res.status(400).json({ message: 'No user_id or bus_id provided' });
     }
+});
+
+
+const transporter = nodemailer.createTransport({
+  service: 'gmail',
+  auth : {
+    user : process.env.MAIL_USER,
+    pass: process.env.MAIL_PASS
+  }
+})
+
+// API Route
+app.post('/register', (req, res) => {
+  const { author, name, number, email } = req.body;
+
+  let subject = '';
+  let content = '';
+
+  if (author === 'user') {
+    subject = 'User Registration';
+    content = `
+      <p>A new user has registered:</p>
+      <p><strong>Name:</strong> ${name}</p>
+      <p><strong>Number:</strong> ${number}</p>
+      <p><strong>Email:</strong> ${email}</p>
+    `;
+  } else if (author === 'bus') {
+    subject = 'Bus Registration';
+    content = `
+      <p>A new bus has registered:</p>
+      <p><strong>Bus Name:</strong> ${name}</p>
+      <p><strong>Bus Number:</strong> ${number}</p>
+      <p><strong>Email:</strong> ${email}</p>
+    `;
+  }
+  const mailOptions = {
+    from: process.env.MAIL_USER,
+    to: process.env.MAIL_USER,
+    subject: subject,
+    html: content
+  };
+
+  // Send email
+  transporter.sendMail(mailOptions, (error, info) => {
+    if (error) {
+      console.log(error);
+      return res.status(500).send('Error sending email');
+    } else {
+      console.log('Email sent: ' + info.response);
+      return res.status(200).send('Registration successful and email sent');
+    }
+  });
 });
 
 const PORT = 3000;

@@ -12,6 +12,7 @@ import Payment from './component/payment/Payment';
 import User_data from './component/User_data';
 import Profile from './component/profile';
 import CurrentTrips from './component/CurrentTrips';
+import Register from './component/signup/Register';
 
 
 function App() {
@@ -28,6 +29,7 @@ function App() {
         <Route path='/user-travel' element={<User_data/>}></Route>
         <Route path='/profile' element={<Profile/>}></Route>
         <Route path='/curr-trips' element={<CurrentTrips/>}></Route>
+        <Route path='/register' element={<Register />}></Route>
         </Routes>
       </Router>
     </>

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './sign-in.css';
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 export default function Login() {
   const [user, setUser] = useState('');
@@ -82,6 +82,7 @@ export default function Login() {
             </div>
             <button className='btn' type='submit'>Login</button>
           </form>
+          <Link style={{position:'relative',left:'10px'}} to='/register'>Register</Link>
         </div>
       </div>
 

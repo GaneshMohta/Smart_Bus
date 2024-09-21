@@ -11,6 +11,23 @@
     color:dimgrey;
 }
 
+.reg-main-flex1{
+    display: flex;
+    flex-direction: column;
+    height: 80vh;
+    width: 80vw;
+    border-radius: 2vh;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    background-color:floralwhite;
+    border:2px solid orangered;
+    color:dimgrey;
+}
+
+
+
+
 .reg-img{
     width: 30vw;
     height: 70vh;
@@ -41,6 +58,20 @@ img{
     justify-content: center;
     gap: 2vh;
 }
+.reg-con1{
+    width:40vw;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1vh;
+}
+
+.lgn{
+    position: fixed;
+    bottom: 80px;
+    left: 49%;
+}
 
 .f1{
     display: flex;
@@ -52,9 +83,26 @@ img{
     justify-content: center;
     align-content: center;
 }
+.f2{
+    display: flex;
+    flex-direction: column;
+    gap: 1vh;
+    height: 40%;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    align-content: center;
+}
 
 .reg-in{
     height: 7vh;
+    width: 35vw;
+    border-radius: 5vh;
+    border: 2px solid orangered;
+}
+
+.reg-in1{
+    height: 12vh;
     width: 35vw;
     border-radius: 5vh;
     border: 2px solid orangered;
@@ -77,6 +125,10 @@ input{
     left: 10px;
 }
 
+a:hover{
+    color: orangered;
+}
+
 @media screen and (max-width:480px) {
     .reg-main-flex{
         display: flex;
@@ -95,7 +147,7 @@ input{
         top: 20px;
     }
 
-    .reg-in{
+    .reg-in,.reg-in1{
         height: 13vh;
         width: 60vw;
         border-radius: 5vh;
@@ -115,7 +167,16 @@ input{
         padding: auto;
         width: 60px;
     }
+    .register-img{
+        height: 80px;;
+    }
+    .lgn{
+        position: relative;
+        top: 4px;
+        left: 10px;
+    }
 }
+
 
 
 @media screen and (max-width:750px) and (min-width : 456px) {
@@ -152,6 +213,7 @@ input{
         color: white;
         font-size: 30px;
     }
+
 }
 
 @media screen and (max-width:1000px) and (min-width : 751px) {
