@@ -17,7 +17,7 @@ export default function Profile() {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const res = await axios.get('http://localhost:3000/profile', {
+                const res = await axios.get('https://smart-bus-5g0q.onrender.com/profile', {
                     params: {
                         user_id: userId || undefined,
                         bus_id: BusId || undefined,

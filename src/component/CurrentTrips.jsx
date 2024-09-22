@@ -13,7 +13,7 @@ export default function CurrentTrips() {
 
   useEffect(()=>{
     const fetchData =async()=>{
-        const res = await axios.get('http://localhost:3000/user/curr-trips',{
+        const res = await axios.get('https://smart-bus-5g0q.onrender.com/user/curr-trips',{
             params:{
                 user_id:userId
             },

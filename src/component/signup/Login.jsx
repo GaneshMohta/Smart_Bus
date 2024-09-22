@@ -12,7 +12,7 @@ export default function Login() {
   const handleSubmit = async(e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('http://localhost:3000/val/login', {
+      const response = await axios.post('https://smart-bus-5g0q.onrender.com/val/login', {
         id: user,
         password: pass,
         type: val

@@ -22,7 +22,7 @@ export default function Register() {
       email
     }
 
-    await axios.post('http://localhost:3000/register',payload)
+    await axios.post('https://smart-bus-5g0q.onrender.com/register',payload)
     .then(response => {
       alert('Registration successful The team contact u soon through email');
       console.log(response.data);

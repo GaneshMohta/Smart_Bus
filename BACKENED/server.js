@@ -15,11 +15,11 @@ app.use(cors());
 
 // MySQL connection
 const connection = mysql.createConnection({
-  host: 'localhost',
-  port: '3306',
-  user: 'root',
+  host: process.env.host,
+  port: process.env.PORT,
+  user: process.env.user,
   password: process.env.Sql_Password,
-  database: 'SmartBus',
+  database: process.env.database,
 });
 
 app.use('/val',loginRouter);
