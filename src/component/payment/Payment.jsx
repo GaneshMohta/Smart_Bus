@@ -21,7 +21,7 @@ export default function Payment() {
 
   const validateCard = async () => {
     try{
-      const res = await axios.post('https://smart-bus-5g0q.onrender.com/validate-card',{
+      const res = await axios.post('http://localhost:3000/validate-card',{
         user_card : userCard
       });
 
@@ -40,65 +40,67 @@ export default function Payment() {
   };
 
   const handlePayment = async () => {
+    try {
+      // Uncomment and enable validation and script loading
+      // const isValid = await validateCard();
+      // if (!isValid) return;
 
-    // const isValid = await validateCard();
+      const res = await loadRazorpayScript();
+      if (!res) {
+        alert('Failed to load Razorpay SDK');
+        return;
+      }
 
-    // if(!isValid){
-    //   return;
-    // }
+      // Request backend to create an order
+      const orderResponse = await axios.post('http://localhost:3000/create-order', { amount });
+      const { amount: orderAmount, id: orderId, currency } = orderResponse.data;
 
-    // const res = await loadRazorpayScript();
+      // Razorpay payment options
+      const options = {
+        key: "rzp_test_NUXd7hr82kbcfF",
+        amount: orderAmount,
+        currency,
+        name: 'BusZ Recharge',
+        description: 'Payment for recharge',
+        order_id: orderId,
+        handler: async function (response) {
+          try {
+            const verifyResponse = await axios.post('http://localhost:3000/verify-payment', {
+              razorpay_order_id: response.razorpay_order_id,
+              razorpay_payment_id: response.razorpay_payment_id,
+              razorpay_signature: response.razorpay_signature,
+              user_card: userCard,
+              amount_paid: amount
+            });
 
-    // if (!res) {
-    //   alert('Failed to load Razorpay SDK');
-    //   return;
-    // }
+            if (verifyResponse.data.message === 'Payment verified successfully') {
+              alert(`Payment successful! Your new balance is ${verifyResponse.data.newAmount}`);
+            } else {
+              alert('Payment verification failed');
+            }
+          } catch (error) {
+            console.error('Error verifying payment:', error);
+            alert('An error occurred during payment verification');
+          }
+        },
+        prefill: {
+          name: 'Ganesh',
+          email: 'ganimaheshwari07@example.com',
+          contact: '6374620670',
+        },
+        theme: {
+          color: '#F37254',
+        },
+      };
 
-    // Request backend to create an order
-    const orderResponse = await axios.post('https://smart-bus-5g0q.onrender.com/create-order', {
-      amount: amount,
-    });
-
-    const { amount: orderAmount, id: orderId, currency } = orderResponse.data;
-
-    const options = {
-      key: "rzp_test_NUXd7hr82kbcfF", // Do not expose your secret key here, only key_id
-      amount: orderAmount,
-      currency: currency,
-      name: 'BusZ Recharge',
-      description: 'Payment for recharge',
-      order_id: orderId,
-      handler: async function (response) {
-        console.log(response.razorpay_payment_id);
-        console.log(response.razorpay_order_id);
-        const verifyResponse = await axios.post('https://smart-bus-5g0q.onrender.com/verify-payment', {
-          razorpay_order_id: response.razorpay_order_id,
-          razorpay_payment_id: response.razorpay_payment_id,
-          razorpay_signature: response.razorpay_signature,
-          user_card: userCard,
-          amount_paid: amount
-        });
-
-
-        if (verifyResponse.data.message === 'Payment verified successfully') {
-          alert(`Payment successful Your new balance is ${verifyResponse.data.newAmount}!`);
-        } else {
-          alert('Payment verification failed');
-        }
-      },
-      prefill: {
-        name: 'Ganesh',
-        email: 'ganimaheshwari07@example.com',
-        contact: '6374620670',
-      },
-      theme: {
-        color: '#F37254',
-      },
-    };
-
-    const paymentObject = new window.Razorpay(options);
-    paymentObject.open();
+      const paymentObject = new window.Razorpay(options);
+      paymentObject.open();
+    } catch (error) {
+      console.error('Payment processing error:', error);
+      alert('An error occurred while processing the payment');
+    }
   };
+
 
   const userId = localStorage.getItem('userId');
   const BusId = localStorage.getItem('busId');
@@ -107,18 +109,19 @@ export default function Payment() {
   return <>
   <Header />
   <span style={{position:'absolute',top:'4px',left:'1vw'}}>
-    {userId ? (
+    { BusId ? (
     <Link to="/cond-page" style={{ textDecoration: 'none' }}>
       👈
     </Link>
-    ) : BusId ? (
+    ) : (
     <Link to="/cond-page" style={{ textDecoration: 'none' }}>
       👈
     </Link>
-    ) : '👈'}
+    )
+     }
   </span>
   <span className='prof-det'>
-                <Link to='/profile' style={{ textDecoration: 'none', color: 'white' }}>{userName || BusId}</Link>
+    <Link to='/profile' style={{ textDecoration: 'none', color: 'white' }}>{userName || BusId}</Link>
   </span>
     <div style={{display:'flex',flexDirection:'column',gap:'2vh',alignItems:'center',justifyContent:'center',height:'80vh'}}>
       <h2>Recharge Application</h2>

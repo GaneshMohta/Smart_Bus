@@ -16,7 +16,7 @@ export default function User_data() {
     const fetchData = async () => {
         try {
             console.log("Fetching data...");
-            const response = await axios.post("https://smart-bus-5g0q.onrender.com/user/Travel", {
+            const response = await axios.post("http://localhost:3000/user/Travel", {
                 user_id: userId,
                 period: period,
             });

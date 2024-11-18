@@ -6,7 +6,7 @@ import './App.css'
 import Homepage from './component/Homepage';
 import Cond_Data from './component/Cond_Data';
 import Header from './component/Header';
-import Login from './component/signup/login';
+import Login from './component/signup/Login';
 
 import Payment from './component/payment/Payment';
 import User_data from './component/User_data';

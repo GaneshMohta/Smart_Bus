@@ -39,13 +39,13 @@ function Homepage() {
     </div>
     </div>
   )
-}else if(userId){
+}else {
   return(
     <div>
        <div style={{height:'9vh', margin:'0vh',display:'flex',justifyContent:'space-between',alignItems:"center",paddingInlineStart:'5px',paddingInlineEnd:'5px',backgroundColor:"white",border:'2px solid white',borderBottomColor:'orange'}}>
     <div></div>
     <div className='hp'>SmartBus</div>
-    <Link to='/profile'><div style={{borderRadius:'50%',backgroundColor:'orangered',width:'40px',height:'40px',display:"flex",justifyContent:"center",alignItems:"center",fontSize:'15px'}}>{userId}</div></Link>
+    <Link to='/profile'><div style={{borderRadius:'50%',backgroundColor:'orangered',width:'40px',height:'40px',display:"flex",justifyContent:"center",alignItems:"center",fontSize:'15px'}}>{userId || null}</div></Link>
   </div>
   <div className='bg-img' style={{display:'flex', height:'90vh'}}>
 

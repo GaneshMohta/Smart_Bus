@@ -22,7 +22,7 @@ export default function Register() {
       email
     }
 
-    await axios.post('https://smart-bus-5g0q.onrender.com/register',payload)
+    await axios.post('http://localhost:3000/register',payload)
     .then(response => {
       alert('Registration successful The team contact u soon through email');
       console.log(response.data);
@@ -33,7 +33,7 @@ export default function Register() {
     };
 
   return (
-    <div style={{ backgroundColor: 'orange', display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh' }}>
+    <div style={{ backgroundColor: 'black', display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh' }}>
       <div className="reg-main-flex1">
 
         {/* <div>

@@ -13,7 +13,7 @@ export default function CurrentTrips() {
 
   useEffect(()=>{
     const fetchData =async()=>{
-        const res = await axios.get('https://smart-bus-5g0q.onrender.com/user/curr-trips',{
+        const res = await axios.get('http://localhost:3000/user/curr-trips',{
             params:{
                 user_id:userId
             },
@@ -52,7 +52,7 @@ export default function CurrentTrips() {
                 <h2>{userName}</h2>
                 <p>₹:{ticket[0]?.amount_debited}</p>
                 <p>{ticket[0]?.destination}</p>
-                <p>{ticket[0]?.record_timestamp}</p>
+                <p>{new Date(ticket[0]?.record_timestamp)}</p>
             </div>
 
             <br />
@@ -62,7 +62,6 @@ export default function CurrentTrips() {
                 </Link>
             ) : null}
 
-            {/* <div className="prof-absolute2">{userName || null}</div> */}
         </div>
     </div>
 </div>

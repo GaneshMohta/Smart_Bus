@@ -14,7 +14,7 @@ router.post('/Travel',(req,res)=>{
     from travel t
     join user_card u on t.user_id = u.user_id
     join bus b on b.bus_id = t.bus_id
-    where u.user_id = ?`
+    where u.user_id = $1`
     ;
 
     let queryParams = [user_id];
@@ -35,7 +35,7 @@ router.post('/Travel',(req,res)=>{
 
         }
 
-        res.status(200).json(results);
+        res.status(200).json(results.rows[0]);
     })
 
 });
@@ -47,7 +47,7 @@ router.get('/curr-trips',(req,res)=>{
         return res.status(400).json({error: "user_id is Required"});
     }
 
-    let query = `select * from bus_user_records where user_id = ?`
+    let query = `select * from bus_user_records where user_id = $1`
 
     let queryParams = [user_id];
 
@@ -55,7 +55,7 @@ router.get('/curr-trips',(req,res)=>{
         if(err){
             res.status(400).json({error: "user_id is Required"});
         }
-        res.status(200).json(results);
+        res.status(200).json(results.rows);
     })
 
 })

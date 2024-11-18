@@ -12,7 +12,7 @@ export default function Login() {
   const handleSubmit = async(e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('https://smart-bus-5g0q.onrender.com/val/login', {
+      const response = await axios.post('http://localhost:3000/val/login', {
         id: user,
         password: pass,
         type: val
@@ -36,7 +36,7 @@ export default function Login() {
 
   return (
     <div>
-    <div style={{ backgroundColor: 'orange', display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh' }}>
+    <div style={{ backgroundColor: 'black', display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh' }}>
 
       <div className='reg-main-flex'>
 
@@ -49,14 +49,14 @@ export default function Login() {
             <input
               type='text'
               className='reg-in'
-              placeholder='User_id/Bus_Id'
+              placeholder='User_id(U001)/Bus_Id(B001)'
               onChange={(e) => setUser(e.target.value)}
               value={user}
             />
             <input
               type='password'
               className='reg-in'
-              placeholder='Card_no/BusNo'
+              placeholder='Card_no(G4K33V1M)/BusNo(1234567891)'
               onChange={(e) => setPass(e.target.value)}
               value={pass}
             />
@@ -83,6 +83,7 @@ export default function Login() {
             <button className='btn' type='submit'>Login</button>
           </form>
           <Link style={{position:'relative',left:'10px'}} to='/register'>Register</Link>
+          <Link style={{position:'relative',left:'10px'}} to='/cond-page'>Back</Link>
         </div>
       </div>
 

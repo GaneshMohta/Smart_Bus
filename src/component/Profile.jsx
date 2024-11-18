@@ -17,13 +17,14 @@ export default function Profile() {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const res = await axios.get('https://smart-bus-5g0q.onrender.com/profile', {
+                const res = await axios.get('http://localhost:3000/profile', {
                     params: {
                         user_id: userId || undefined,
                         bus_id: BusId || undefined,
                     },
                 });
-                setDetails(res.data);
+                console.log(res.data)
+                setDetails(res.data[0]);
             } catch (e) {
                 console.log(e);
             }
@@ -33,7 +34,7 @@ export default function Profile() {
         }
     }, [userId, BusId]);
 
-    console.log(details);
+    // console.log(details);
 
 
     const handleLogout = () => {
