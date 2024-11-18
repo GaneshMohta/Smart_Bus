@@ -15,7 +15,7 @@ export default function Cond_Data() {
     const fetchData = async () => {
         try {
             console.log("Fetching data...");
-            const response = await axios.get("http://localhost:3000/api/bus-travel", {
+            const response = await axios.get("https://smart-bus-5g0q.onrender.com/api/bus-travel", {
                 params: {
                     bus_id: busId,
                     travel_date: date || undefined,

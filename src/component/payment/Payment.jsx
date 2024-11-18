@@ -21,7 +21,7 @@ export default function Payment() {
 
   const validateCard = async () => {
     try{
-      const res = await axios.post('http://localhost:3000/validate-card',{
+      const res = await axios.post('https://smart-bus-5g0q.onrender.com/validate-card',{
         user_card : userCard
       });
 
@@ -52,7 +52,7 @@ export default function Payment() {
       }
 
       // Request backend to create an order
-      const orderResponse = await axios.post('http://localhost:3000/create-order', { amount });
+      const orderResponse = await axios.post('https://smart-bus-5g0q.onrender.com/create-order', { amount });
       const { amount: orderAmount, id: orderId, currency } = orderResponse.data;
 
       // Razorpay payment options
@@ -65,7 +65,7 @@ export default function Payment() {
         order_id: orderId,
         handler: async function (response) {
           try {
-            const verifyResponse = await axios.post('http://localhost:3000/verify-payment', {
+            const verifyResponse = await axios.post('https://smart-bus-5g0q.onrender.com/verify-payment', {
               razorpay_order_id: response.razorpay_order_id,
               razorpay_payment_id: response.razorpay_payment_id,
               razorpay_signature: response.razorpay_signature,
