@@ -1,20 +1,17 @@
 const {Client} = require('pg');
 require('dotenv').config();
 
+const client = new Client({
+    connectionString: process.env.DATABASE_URL,
+    ssl: {
+        rejectUnauthorized: false,  // Required for SSL on Render
+    },
+});
+client.connect()
+    .then(() => console.log('Connected to PostgreSQL'))
+    .catch(err => console.error('Connection error', err.stack));
 
 
-const pgconnection = new Client({
-    user: process.env.user,
-    host:process.env.host,
-    database:process.env.database,
-    password:process.env.Password,
-    port:process.env.PORT
-})
-
-pgconnection.connect(function(err){
-    if(err) throw err;
-    console.log("connected")
-})
 
 
 
@@ -27,4 +24,4 @@ pgconnection.connect(function(err){
 //     }
 // })
 
-module.exports = pgconnection;
+module.exports = client;

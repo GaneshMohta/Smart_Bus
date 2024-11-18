@@ -25,11 +25,15 @@ app.use(cors());
 // });
 
 const pgconnection = new Client({
-  user: process.env.user,
-  host:process.env.host,
-  database:process.env.database,
-  password:process.env.Password,
-  port:process.env.PORT
+  // user: process.env.user,
+  // host:process.env.host,
+  // database:process.env.database,
+  // password:process.env.Password,
+  // port:process.env.PORT
+  connectionString: process.env.DATABASE_URL,
+    ssl: {
+        rejectUnauthorized: false,  // Required for SSL on Render
+    },
 })
 
 pgconnection.connect(function(err){
