@@ -10,7 +10,7 @@ import Login from './component/signup/Login';
 
 import Payment from './component/payment/Payment';
 import User_data from './component/User_data';
-import Profile from './component/profile';
+import Profile from './component/Profile';
 import CurrentTrips from './component/CurrentTrips';
 import Register from './component/signup/Register';
 
