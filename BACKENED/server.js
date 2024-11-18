@@ -44,7 +44,7 @@ app.use('/user',userTravel);
 // pgconnection.connect((err) => {
 //   if (err) console.log('MySQL connection error:', err);
 //   else console.log('Connected to MySQL');
-// });
+// })
 
 // Razorpay instance
 const razorpay = new Razorpay({
